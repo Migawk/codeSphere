@@ -1,0 +1,83 @@
+.footer
+  background: #121212
+  color: #fff
+  &Top
+    display: flex
+    border-bottom: 1px solid #202020
+    &Desc
+      width: 33%
+      padding: 128px 212px 128px 48px
+      color: #999995
+      &>img
+        margin-bottom: 24px
+    &Let
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 100%
+      font-size: 64px
+      &>h1
+        background: radial-gradient(circle at 90% 0%, #f88 40%, transparent 100%), radial-gradient(circle at 0% 20%, #ff2 70%, transparent 100%),
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+  &Bottom
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 36px 48px
+    gap: 24px
+    flex-wrap: wrap
+
+    &List
+      display: flex
+      gap: 48px
+      &>button
+        color: #fff
+
+@media screen and (max-width: 1600px)
+  .footer
+    &Top
+      &Desc
+        width: max-content
+        padding: 0
+      &Let
+        font-size: 24px
+
+@media screen and (max-width: 900px)
+  .footer
+    &Top
+      &Desc
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 12px
+        padding: 0 24px
+        &>img
+          display: none
+      &Let
+        display: none
+    &Bottom
+      padding: 16px 2px
+      &List
+        display: flex
+        justify-content: center
+        width: 100%
+.nav
+  border-left: 1px solid #202020
+  border-right: 1px solid #202020
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  &>button
+    color: #fff
+    border-bottom: 1px solid #202020
+    width: 100%
+    padding: 36px
+    height: 100%
+    text-align: center
+    transition: .5s
+    &:last-child
+      border-bottom: none
+    &:hover
+      background: #fff
+      color: #000

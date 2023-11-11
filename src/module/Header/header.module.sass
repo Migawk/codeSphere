@@ -1,0 +1,269 @@
+#computer
+  stroke: black
+  stroke-width: .25px
+.header
+  display: flex
+  justify-content: space-between
+  padding: 8px 32px
+  position: sticky
+  top: -2px
+  background: #fff
+  z-index: 1
+
+.logo
+  &Image
+    width: 56px
+    height: 56px
+    &>path
+      transform: translate(-46px, -46px)
+
+.nav
+  display: flex
+  justify-content: space-between
+  align-items: center
+  gap: 8px
+  width: 512px
+  padding: 0
+  margin: 0
+@media screen and (max-width: 900px)
+  .nav
+    display: none
+.actions
+  display: flex
+  justify-content: center
+  align-items: center
+  gap: 16px
+  &>button
+    width: 24px
+    height: 24px
+    border: none
+    background: none
+    cursor: pointer
+    &>svg
+      width: 24px
+      height: 24px
+
+.NavButton
+  height: max-content
+  overflow: hidden
+  transition: .5s
+  display: block
+  padding: 4px
+  border: none
+  background: none
+  cursor: pointer
+  &>span
+    transition: .5s
+    display: block
+  &>span:nth-child(1)
+    position: relative
+    transform: translateY(0%)
+    opacity: 1
+  &>span:nth-child(2)
+    position: relative
+    &>span
+      width: max-content
+      transition: .5s
+      position: absolute
+      transform: translate(-50%, 0%)
+      opacity: 0
+
+  &:hover
+    &>span:nth-child(1)
+      transform: translateY(-100%)
+      opacity: 0
+    &>span:nth-child(2)
+      &>span
+        transform: translate(-50%, -100%)
+        opacity: 1
+
+.aboutUs
+  transition: .5s
+  &>div
+    display: none
+    position: absolute
+    height: 24px
+    &>button
+      position: relative
+      top: 16px
+
+      padding: 12px 48px
+
+      color: white
+      background: black
+      border: none
+      border-radius: 1px
+      cursor: pointer
+.aboutUs:hover
+  &>div
+    display: block
+
+.search
+  position: relative
+  &Field
+    position: absolute
+    transform: translate(-85%, 40%)
+    background: #eee
+    padding: 14px
+    border-radius: 1px
+    width: 256px
+
+    &>input
+      width: 100%
+      border: none
+      border-radius: 1px
+      font-weight: 600
+      padding: 10px
+
+.modal
+  z-index: 2
+  transition: .5s
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  background: #1d1d1d
+  display: grid
+  grid-template-columns: 4fr 10fr 5fr
+  gap: 1px
+  color: #ffc
+
+  &Left
+    display: grid
+    grid-template-rows: 31fr 110fr 52fr
+    // fount using GCD from original website, it stupid
+    gap: 1px
+    &>*
+      background: #121212
+      height: 100%
+      padding: 30px 0 0 50px
+      &:last-child
+        padding: 30px 0 0 30px
+  &Center
+    display: flex
+    flex-direction: column
+    gap: 1px
+    overflow: hidden
+    &>*
+      height: 100%
+
+  &List
+    display: flex
+    flex-direction: column
+    font-weight: 700
+    &>a
+      text-decoration: none
+      color: white
+      width: fit-content
+      padding: 5px 20px 5px 0
+      &:hover
+        opacity: .6
+    &Big
+      display: flex
+      flex-direction: column
+      gap: 1px
+      height: 125%
+      &>*
+        background: #121212
+        color: white
+        font-size: 48px
+        padding: 15px 0 15px 50px
+        height: 100%
+@media screen and (max-width: 900px)
+  .modal
+    grid-template-columns: 1fr
+    &Left, &Right
+      display: none
+@media screen and (max-width: 800px)
+  .modal
+    &ListBig
+      &>*
+        padding: 0
+.closeButton
+  background: #232323
+  border: none
+  border-radius: 50%
+
+  width: 64px
+  height: 64px
+
+  display: flex
+  justify-content: center
+  align-items: center
+
+  cursor: pointer
+  transition: .5s
+  &:hover
+    background: #DE3163
+    &>svg>path
+      fill: #F8FAFF
+  &>svg>path
+    transition: .5s
+    fill: white
+.reserveButton
+  padding: 0 16px
+  position: absolute
+  top: -100px
+  left: -100px
+
+@media screen and (max-width: 800px)
+  .reserveButton
+    position: static
+    display: block
+
+.modalRight
+  padding: 42px
+  background: radial-gradient(circle at 27% 100%, #e66465 15%, transparent 15.2%), radial-gradient(circle at 58% 77%, #8E4585 7%, transparent 7.2%)
+  &Button
+    display: flex
+    justify-content: flex-end
+  &Bottom
+    display: flex
+    flex-direction: column
+    gap: 8px
+    &>h1
+      font-size: 26px
+      margin-bottom: 16px
+    &>a
+      color: #fff
+      text-decoration: none
+      &:hover
+        opacity: .6
+
+.modalSearch
+  width: 100%
+  margin-top: 82px
+  margin-bottom: 64px
+  &>input
+    display: inline-block
+    background: none
+    border: 1px solid #555
+    border-radius: 26px
+    color: #555
+    padding: 18px
+    margin: 0 2px
+    transition: .5s
+    width: 100%
+    &:hover, &:focus
+      outline: 1px solid white
+  &>div
+    display: inline-block
+    position: relative
+    right: 40px
+    top: -19px
+    &>button
+      position: absolute
+      padding: 5px
+      border: none
+      background: none
+      cursor: pointer
+      &>svg>path
+        fill: #fff
+
+.modalFade
+  transition: .5s
+  opacity: 0
+.modalFadeOpen
+  transition: .5s
+  opacity: 0
