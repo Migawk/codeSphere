@@ -10,3 +10,28 @@
     transition: .5s
     width: 326px
     margin-right: 128px
+
+
+$timing: 40s
+.right
+  animation: rightMove
+  animation-duration: $timing
+  animation-iteration-count: infinite
+  transition-timing-function: linear
+
+.left
+  animation: leftMove
+  animation-duration: $timing
+  animation-iteration-count: infinite
+  transition-timing-function: linear
+
+@keyframes rightMove
+  0%
+    transform: translateX(-50%)
+  100%
+    transform: translateX(0%)
+@keyframes leftMove
+  0%
+    transform: translateX(0%)
+  100%
+    transform: translateX(-50%)

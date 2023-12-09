@@ -1,5 +1,6 @@
 import styles from "./main.module.sass";
 import office from "../../assets/office.jpg";
+import arrowUp from "../../assets/arrowUp.svg";
 import TextCarousel from "../../component/TextCarousel/TextCarousel.tsx";
 
 import { useEffect, useRef, useState } from "react";
@@ -10,12 +11,17 @@ type IRef = null | any | {current: HTMLDivElement};
 export default function Main() {
   const [title1, title2]: [IRef, IRef] = [useRef(null), useRef(null)];
 
-  const [modal, setModal] = useState<boolean>(true);
+  const [modal, setModal] = useState<boolean>(false);
+  const [showButtonBack, setShowButtonBack] = useState<boolean>(false);
 
   function sleep(time: number) {
     return new Promise(resolve => setTimeout(resolve, time));
   }
   useEffect(() => {
+    document.addEventListener('scroll', () => {
+      if(window.scrollY > 100) return setShowButtonBack(true);
+      setShowButtonBack(false);
+    })
     if(title1.current === null || title2.current === null) return;
     const list: HTMLElement[] = Array.from(title1.current.children);
     const list2: HTMLElement[] = Array.from(title2.current.children);
@@ -84,6 +90,9 @@ export default function Main() {
           textColor="fff"
           direction="right"/>
       </section>
+      {
+        showButtonBack && createPortal(<button className={styles.backButton} onClick={() => window.scrollTo(0,0)}><img src={arrowUp}/></button>, document.body)
+      }
     </main>
   )
 }
