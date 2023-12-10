@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.sass';
 import Layout from "./module/Layout.tsx";
 import Main from "./pages/Main/Main.tsx";
-
-
 import {
   createBrowserRouter,
   RouterProvider,

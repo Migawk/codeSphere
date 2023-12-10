@@ -4,8 +4,75 @@
 .wrapper1
   font-weight: 900
   background: radial-gradient(circle at 0% 35%, #f9f9f9 17%, transparent 17.2%), radial-gradient(circle at 0% 35%, #f0f0f0 17.1%, transparent 17.2%)
-  margin-bottom: 128px
-
+.wrapper2
+  margin: 0 150px
+  padding-top: 128px
+  padding-bottom: 128px
+  border-left: 1px solid #e9e9e9
+  border-right: 1px solid #e9e9e9
+  &::before
+    content: ""
+    position: absolute
+    display: block
+    left: 50%
+    width: 1px
+    height: 100vh
+    background: #e9e9e9
+    transform: translate(0, -128px)
+    z-index: -15
+.wrapper3
+  background: #121212
+  color: #fff
+  width: 100vw
+  height: calc(712px * 1.5)
+  z-index: 15
+  display: flex
+  justify-content: space-between
+  &Left
+    display: flex
+    align-items: flex-end
+    height: 100%
+    padding-left: 112px
+    &>img
+      position: relative
+      width: 500px
+      height: 712px
+      object-fit: cover
+  &Right
+    padding-top: 140px
+    padding-right: 112px
+    width: 40%
+    border-left: 1px solid #343434
+    background: radial-gradient(circle at 100% 36%, #121212 calc( 18% - 1px), transparent 18%), radial-gradient(circle at 100% 36%, #343434 18%, transparent 18%)
+    &>button
+      margin-left: 32px
+      margin-top: 32px
+    &>p
+      margin-left: 32px
+      padding-top: 32px
+      line-height: 1.4
+      font-size: 18px
+      &::after
+        position: absolute
+        content: ""
+        background: #343434
+        width: 1px
+        height: 86px
+        transform: rotate(42deg) translate(82px, -300px)
+  &Title
+    background: #121212
+    font-weight: 900
+    transform: translateX(-25%)
+    width: fit-content
+    z-index: 5
+    &>p
+      padding-top: 45px
+      padding-bottom: 15px
+      font-size: 18px
+    &>h1
+      padding-bottom: 40px
+      font-size: 48px
+      line-height: 98%
 .title
   margin: 0 150px
   font-size: 220px
@@ -103,7 +170,7 @@
 
 @media screen and (max-width: 1400px)
   .image
-    margin-top: 256px
+    margin-top: 200px
 
 @media screen and (min-width: 1920px)
   .imageTitle
@@ -118,17 +185,16 @@
   border: #999
   border-radius: 8px
   width: 50%
-  // height: 30%
-  left: 50%
-  top: 50%
-  transform: translate(-50%, -50%)
+  right: 10%
+  bottom: 10%
+  // transform: translate(-50%, -50%)
   overflow: hidden
   &>p
     padding: 16px
   &Close
     float: right
     width: min-content
-    padding: 4px
+    padding: 8px
     border: none
     border-bottom-left-radius: 12px
     transition: .5s
@@ -150,4 +216,48 @@
   border-radius: 50%
   background: white
   mix-blend-mode: exclusion
+  cursor: pointer
+
+.logos
+  &Des
+    font-size: 18px
+    padding-bottom: 16px
+    transform: rotateX(90deg) translateY(64px)
+    transition: .5s
+  &Title
+    font-size: 50px
+    padding-bottom: 64px
+    transform: rotateX(90deg) translateY(64px)
+    transition: .5s
+  &Company
+    max-width: 100px
+  &Table
+    width: 100%
+    background: #fff
+  &Row
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+    &>td
+      background: #fff
+      display: flex
+      align-items: center
+      justify-content: center
+      border: 1px solid #e9e9e9
+      border-right: none
+      padding: 36px
+      &:first-child
+        border-left: none
+  
+.buttonTry
+  background: #D9FF00
+  border: none
+  border-radius: 50%
+  width: 170px
+  height: 170px
+  font-weight: 500
+  font-size: 18px
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 8px
   cursor: pointer

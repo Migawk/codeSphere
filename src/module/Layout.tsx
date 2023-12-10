@@ -14,13 +14,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }
 
   useEffect(() => {
+    const pointer = document.getElementById("cursorPointer");
+    const circle = document.getElementById("cursorCircle");
+
     document.addEventListener("mousemove", (e) => {
       const { clientX: X, clientY: Y } = e as unknown as {
         clientX: number;
         clientY: number;
       };
-      const pointer = document.getElementById("cursorPointer");
-      const circle = document.getElementById("cursorCircle");
       smoother(X, Y, pointer, 16);
       smoother(X, Y, circle, 8);
     });
