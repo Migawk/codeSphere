@@ -24,47 +24,48 @@
   background: #121212
   color: #fff
   width: 100vw
-  height: calc(712px * 1.5)
+  height: 100%
+  height: max-content
   z-index: 15
   display: flex
   justify-content: space-between
   &Left
     display: flex
     align-items: flex-end
+    justify-content: center
     height: 100%
     padding-left: 112px
+    width: 100%
     &>img
       position: relative
       width: 500px
       height: 712px
       object-fit: cover
+      // margin-bottom: 128px
   &Right
     padding-top: 140px
     padding-right: 112px
     width: 40%
     border-left: 1px solid #343434
     background: radial-gradient(circle at 100% 36%, #121212 calc( 18% - 1px), transparent 18%), radial-gradient(circle at 100% 36%, #343434 18%, transparent 18%)
-    &>button
-      margin-left: 32px
-      margin-top: 32px
     &>p
       margin-left: 32px
       padding-top: 32px
       line-height: 1.4
       font-size: 18px
-      &::after
+      &::before
         position: absolute
         content: ""
         background: #343434
         width: 1px
         height: 86px
-        transform: rotate(42deg) translate(82px, -300px)
+        right: 90px
+        transform: rotate(42deg)
   &Title
     background: #121212
     font-weight: 900
-    transform: translateX(-25%)
+    transform: translateX(-15%)
     width: fit-content
-    z-index: 5
     &>p
       padding-top: 45px
       padding-bottom: 15px
@@ -73,6 +74,40 @@
       padding-bottom: 40px
       font-size: 48px
       line-height: 98%
+
+@media screen and (max-width: 1200px)
+  .wrapper3
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 100%
+    &Left
+      transform: translateY(512px)
+      padding: 0
+      &>img
+        width: 256px
+    &Right
+      padding: 0
+      width: 100%
+      & > p
+        margin: 0
+        padding: 0 32px
+    &Title
+      transform: none
+      padding: 0 32px
+      font-size: 32px
+      &>h1
+        padding-left: 12px
+        word-break: break-all
+
+
+@media screen and (max-width: 480px)
+  .wrapper2
+    margin: 0
+    display: flex
+    flex-direction: column
+    align-items: center
 .title
   margin: 0 150px
   font-size: 220px
@@ -247,7 +282,7 @@
       padding: 36px
       &:first-child
         border-left: none
-  
+
 .buttonTry
   background: #D9FF00
   border: none
@@ -261,3 +296,29 @@
   justify-content: center
   gap: 8px
   cursor: pointer
+  &Div
+    padding-left: 32px
+    padding-top: 32px
+    padding-bottom: 32px
+  
+@media screen and (max-width: 1350px)
+  .logos
+    &Row
+      grid-template-columns: 1fr 1fr 1fr
+
+@media screen and (max-width: 825px)
+  .logos
+    &Title
+      padding: 0 16px
+    &Row
+      grid-template-columns: 1fr 1fr
+
+@media screen and (max-width: 660px)
+  .logos
+    &Row
+      display: block
+
+@media screen and (max-width: 1200px)
+  .buttonTryDiv
+    display: flex
+    justify-content: center

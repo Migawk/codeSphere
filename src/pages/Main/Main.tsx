@@ -22,6 +22,33 @@ export default function Main() {
   function sleep(time: number) {
     return new Promise((resolve) => setTimeout(resolve, time));
   }
+
+  function buttonTryEv(e: { clientX: number; clientY: number }) {
+    const button = document.getElementById("buttonTry")!;
+    const buttonCursor = {
+      x: e.clientX - button.getBoundingClientRect().left - 85,
+      y: e.clientY - button.getBoundingClientRect().top - 85,
+    };
+    console.log(buttonCursor);
+    if (Math.abs(buttonCursor.x) > 64 || Math.abs(buttonCursor.y) > 64) {
+      button.animate(
+        {
+          transform: "translate(0,0)",
+        },
+        {
+          duration: 5000,
+          fill: "forwards",
+        }
+      );
+    } else {
+      button.animate(
+        {
+          transform: `translate(${buttonCursor.x}px, ${buttonCursor.y}px)`,
+        },
+        { duration: 2000, fill: "forwards" }
+      );
+    }
+  }
   useEffect(() => {
     document.addEventListener("scroll", () => {
       const wrapper = document.querySelector("#wrapper3");
@@ -31,26 +58,31 @@ export default function Main() {
         document.getElementById("logosDes"),
         document.getElementById("logosTitle"),
       ];
-      console.log(logDes, logTitle);
 
       if (rollUpImg && wrapper) {
         const val =
-          wrapper.getBoundingClientRect().top - window.innerHeight + 350;
+          wrapper.getBoundingClientRect().top - window.innerHeight + 650;
         if (val < 0 && val > -600) {
           rollUpImg.style.transform = `translateY(${val}px)`;
         }
       }
-      if(logDes && logTitle) {
-        const val = logDes.getBoundingClientRect().top - window.innerHeight + 100;
-        if(val < 0) {
-          logDes.animate({
-            transform: "rotateX(0deg)"
-          }, {duration: 5000, fill: "forwards"});
-          logTitle.animate({
-            transform: "rotateX(0deg)"
-          }, {duration: 5000, fill: "forwards"});
+      if (logDes && logTitle) {
+        const val =
+          logDes.getBoundingClientRect().top - window.innerHeight + 100;
+        if (val < 0) {
+          logDes.animate(
+            {
+              transform: "rotateX(0deg)",
+            },
+            { duration: 5000, fill: "forwards" }
+          );
+          logTitle.animate(
+            {
+              transform: "rotateX(0deg)",
+            },
+            { duration: 5000, fill: "forwards" }
+          );
         }
-        console.log(val);
       }
       if (window.scrollY > 100) return setShowButtonBack(true);
       setShowButtonBack(false);
@@ -215,12 +247,18 @@ export default function Main() {
             resultat och mätbar framgång. Tveka inte att kontakta oss och lyft
             ditt företag till nästa nivå.
           </p>
-          <button className={styles.buttonTry} id="buttonTry">
-            <div></div>
-            <span>
-              Utforska oss <img src={share} />
-            </span>
-          </button>
+          <div
+            id="buttonTryDiv"
+            onMouseMove={buttonTryEv}
+            className={styles.buttonTryDiv}
+          >
+            <button className={styles.buttonTry} id="buttonTry">
+              <div></div>
+              <span>
+                Utforska oss <img src={share} />
+              </span>
+            </button>
+          </div>
         </div>
       </section>
       <section>
